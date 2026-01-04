@@ -1,6 +1,8 @@
 # Francinette
 
-## :exclamation: This repo is long abandoned. It's probably way out of date, and does not work on newer systems. Please seek other alternatives. :exclamation:
+## :rocket: Python 3.13 Compatible Fork :rocket:
+
+This is a maintained fork with Python 3.13 compatibility fixes. The original repository has been archived, but this version works with Python 3.12+ and Python 3.13.
 
 # Also: write your own tests!!
 #
@@ -13,6 +15,12 @@ Currently has tests for: `libft`, `ft_printf`, `get_next_line`, `minitalk` and `
 
 `Francinette` is only tested and confirmed to work on MacOS on non ARM chips. Some testers may work on
 Linux and ARM, but I give no guaranties of any test working or even compiling.
+
+### Python 3.13 Compatibility
+
+This fork includes fixes for Python 3.13 compatibility:
+- Replaced deprecated `pipes` module with `shlex` (required for Python 3.13+)
+- Tested and working with Python 3.12 and Python 3.13
 
 ## :exclamation: Important note:
 
@@ -57,11 +65,20 @@ running this tool.
 In linux it will also download and install the necessary packages for it to run. It needs
 admin permission to do that.
 
+**Python 3.12+ required (Python 3.13 compatible!)**
+
 ```
-bash -c "$(curl -fsSL https://raw.github.com/xicodomingues/francinette/master/bin/install.sh)"
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/Prashant-Bharaj/francinette/master/install.sh)"
 ```
 
-The francinette folder will be under your `$HOME` directory (`/Users/<your_username>/`)
+The francinette folder will be under your `$HOME` directory (`/Users/<your_username>/` or `/home/<your_username>/`)
+
+Alternatively, if you have the repository cloned locally:
+
+```bash
+cd francinette
+bash install.sh
+```
 
 
 ## Update:
@@ -73,10 +90,13 @@ You can also force it from francinette itself:
 ~ $> francinette -u              # Forces francinette to update
 ```
 
-If the above does not work you can also execute the command bellow:
+If you need to manually update, you can pull the latest changes:
 
-```
-bash -c "$(curl -fsSL https://raw.github.com/xicodomingues/francinette/master/bin/update.sh)"
+```bash
+cd ~/francinette
+git pull origin master
+source venv/bin/activate
+pip install -r requirements.txt
 ```
 
 
@@ -136,7 +156,7 @@ alias paco="$HOME"/francinette/tester.sh
 
 ## FAQ
 
-If you have any questions you can create an issue or reach me on slack under `fsoares-`
+If you have any questions you can create an issue on the [GitHub repository](https://github.com/Prashant-Bharaj/francinette/issues).
 
 #### I'm more advanced than the tests you have available. When are you adding more tests?
 
@@ -179,7 +199,20 @@ alias francinette="$HOME"/francinette/tester.sh
 alias paco="$HOME"/francinette/tester.sh
 ```
 
-Now it should work. If it does not, don't be afraid to contact me.
+Then reload your shell:
+```bash
+source ~/.bashrc  # or source ~/.zshrc if using zsh
+```
+
+#### Python 3.13 compatibility issues
+
+This fork includes fixes for Python 3.13. If you encounter any Python-related errors, make sure you're using Python 3.12 or higher:
+
+```bash
+python3 --version
+```
+
+If you're still experiencing issues, please create an issue on the [GitHub repository](https://github.com/Prashant-Bharaj/francinette/issues).
 
 ## Acknowledgments
 
